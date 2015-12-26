@@ -1,26 +1,23 @@
 
 
-/*
-* Curso IOS . Prueba de Velocímetro
-*/
+// Curso SWIFT - Segunda prueba - Velocimetro
+
 
 import UIKit
 
 
 enum Velocidades:Int {
     
-    case Apagado            = 0
-    case VelocidadBaja      = 20
-    case VelocidadMedia     = 50
-    case VelocidadAlta      = 120
+    case Apagado = 0
+    case VelocidadBaja = 20
+    case VelocidadMedia = 50
+    case VelocidadAlta = 120
     
-    init( velociadadInicial : Velocidades)
+    init( velocidadInicial : Velocidades)
     {
-        self = velociadadInicial
+        self = velocidadInicial
     }
-    
 }
-
 
 class Auto{
     
@@ -28,34 +25,34 @@ class Auto{
     
     init()
     {
-        velocidad = Velocidades(velociadadInicial: Velocidades.Apagado)
+        velocidad = Velocidades(velocidadInicial: Velocidades.Apagado)
     }
     
     func cambioDeVelocidad( ) -> ( actual : Int, velocidadEnCadena: String)
     {
-        var ret : (Int,String)
+        var cambio : (Int,String)
         switch velocidad{
         case .Apagado:
-            ret = (0,"Apagado")
+            cambio = (0,"Apagado")
             velocidad = .VelocidadBaja
         case .VelocidadBaja:
-            ret = (20,"Velocidad Baja")
+            cambio = (20,"Velocidad Baja")
             velocidad = .VelocidadMedia
         case .VelocidadMedia:
-            ret = (50,"Velocidad Media")
+            cambio = (50,"Velocidad Media")
             velocidad = .VelocidadAlta
         case .VelocidadAlta:
-            ret = (120,"Velocidad Alta")
+            cambio = (120,"Velocidad Alta")
             velocidad = .VelocidadMedia
             
         }
-        return ret
+        return cambio
     }
     
 }
 
 var auto = Auto ()
 
-for var index = 0; index < 20 ; ++index{
+for var i = 0; i < 20 ; ++i{
     print (auto.cambioDeVelocidad())
 }
